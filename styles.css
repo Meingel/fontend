@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #343A40;
+}
+
+.Icono {
+    width: 50px; /* Ajusta el tamaño del icono */
+    height: 50px; /* Ajusta el tamaño del icono */
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px; /* Aumentamos el padding */
+}
+
+.menu .logo img {
+    vertical-align: middle;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin-left: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none; /* Quitamos el subrayado */
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.menu ul li a:hover {
+    background-color: #495057; /* Fondo cuando se pasa el cursor */
+}
+
+.menu ul li a.active {
+    background-color: #495057; /* Fondo del botón activo */
+}
+
+.menu ul li a.login-btn {
+    background-color: #E3E3E3;
+    color: #343A40;
+    border-radius: 5px;
+}
+
+.menu ul li a.registro-btn {
+    background-color: #2C2C2C;
+    color: white;
+    border-radius: 5px;
+}
