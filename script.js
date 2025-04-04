@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const button = document.querySelector('.hero button');
-    button.addEventListener('click', () => {
-        alert('Bienvenido a nuestra tienda virtual UrbanStyle.');
+    const toggleButton = document.querySelector(".menu-toggle");
+    const menuItems = document.querySelector(".menu-items");
+
+    toggleButton.addEventListener("click", () => {
+        menuItems.classList.toggle("active");
     });
 });

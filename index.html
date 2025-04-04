@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Mejorado</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Icono para el menú hamburguesa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -12,7 +14,9 @@
             <div class="logo">
                 <img src="image/icono.png" class="Icono" width="30" height="30">
             </div>
-            <ul>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
@@ -21,5 +25,12 @@
             </ul>
         </nav>
     </header>
+    <section class="banner">
+        <div class="banner-overlay">
+            <h1>UrbanStyle</h1>
+            <p>Eleva tu estilo, define tu esencia. Descubre las ultimas tendencias en moda y encuentra el look perfecto para cada ocasión.</p>
+            <a href="productos.html" class="explore-btn">Explora la colección</a>
+        </div>
+    </section>
 </body>
 </html>
