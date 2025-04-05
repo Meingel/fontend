@@ -212,3 +212,120 @@ header {
         padding: 10px 20px;
     }
 }
+
+.image-grid {
+    padding: 100px 100px 100px 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+.image-grid img {
+    width: 100%;
+    height: auto;
+}
+@media (max-width: 600px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.benefits-section {
+    padding: 50px;    
+}
+.why-choose-us {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.why-choose-us h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.why-choose-us p {
+    font-size: 16px;
+    color: #979797;
+}
+
+.benefits-section p{
+    color: #979797;
+}
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.icon-title-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.icon {
+    width: 40px;
+}
+
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonials {
+    padding: 50px;
+}
+.section-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.section-header p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #979797;
+}
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.testimonial {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.profile-pic {
+    width: 50px;
+    border-radius: 5em;
+}
+.testimonial-content h3 {
+    font-size: 19px;
+    margin-bottom: 5px;
+    color: #1E1E1E;
+}
+.testimonial-content .name {
+    font-weight: bold;
+    font-size: 14px;
+    color: #757575;
+}
+.testimonial-content .role {
+    font-size: 12px;
+    color: #B3B3B3;
+}
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
