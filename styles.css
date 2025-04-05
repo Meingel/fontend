@@ -1,3 +1,4 @@
+/* Estilos base */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -5,59 +6,209 @@ body {
 
 header {
     background-color: #343A40;
+    position: relative;
 }
 
 .Icono {
-    width: 50px; /* Ajusta el tamaño del icono */
-    height: 50px; /* Ajusta el tamaño del icono */
+    width: 50px;
+    height: 50px;
 }
 
+/* Estilos del menú */
 .menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 30px; /* Aumentamos el padding */
+    padding: 15px 30px;
+    position: relative;
 }
 
 .menu .logo img {
     vertical-align: middle;
 }
 
-.menu ul {
+.nav-links {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-.menu ul li {
+.nav-links li {
     margin-left: 20px;
 }
 
-.menu ul li a {
-    text-decoration: none; /* Quitamos el subrayado */
+.nav-links li a {
+    text-decoration: none;
     color: white;
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;
+    transition: all 0.3s ease;
+    display: block;
 }
 
-.menu ul li a:hover {
-    background-color: #495057; /* Fondo cuando se pasa el cursor */
+.nav-links li a:hover {
+    background-color: #495057;
 }
 
-.menu ul li a.active {
-    background-color: #495057; /* Fondo del botón activo */
-}
-
-.menu ul li a.login-btn {
+.nav-links li a.login-btn {
     background-color: #E3E3E3;
     color: #343A40;
-    border-radius: 5px;
 }
 
-.menu ul li a.registro-btn {
+.nav-links li a.registro-btn {
     background-color: #2C2C2C;
     color: white;
+}
+
+/* Estilos del banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 700px;
+    min-height: 500px;
+    background: url('image/banner.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10%;
+    color: white;
+    box-sizing: border-box;
+}
+
+.banner-overlay h1 {
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+.banner-overlay p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.5;
+    max-width: 50%;
+    margin-bottom: 20px;
+}
+
+.explore-btn {
+    text-decoration: none;
+    background-color: #E3E3E3;
+    color: black;
+    padding: 12px 25px;
     border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.explore-btn:hover {
+    background-color: #d1d1d1;
+}
+
+/* Estilos responsive */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    
+    .menu-icon {
+        display: block;
+        order: 1;
+    }
+    
+    .logo {
+        order: 0;
+    }
+    
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        order: 2;
+        text-align: center;
+        background-color: #343A40;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+        margin-left: 0;
+    }
+    
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    .banner-overlay {
+        padding: 0 20px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .banner-overlay h1 {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .banner-overlay p {
+        max-width: 90%;
+        text-align: center;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-overlay h1 {
+        font-size: 2.5rem;
+    }
+    
+    .banner-overlay p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .explore-btn {
+        padding: 10px 20px;
+    }
 }
