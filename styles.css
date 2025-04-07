@@ -290,7 +290,7 @@ header {
 }
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 .testimonial {
@@ -430,6 +430,11 @@ header {
       text-align: center;
     }
   }
+
+label{
+    text-align: left;
+}
+
 
   /* Dashboard ( control de usuarios) */
 * {
@@ -625,3 +630,130 @@ body {
     font-weight: bold;
   }
   
+  #unique-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.unique-footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.unique-footer-logo-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.unique-logo img {
+    width: 50px;
+    height: auto;
+}
+
+.unique-social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.unique-social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.unique-social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.unique-footer-links {
+    display: flex;
+    flex: 2;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.unique-column {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.unique-column h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.unique-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.unique-column ul li {
+    margin-bottom: 5px;
+}
+
+.unique-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.unique-column ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .unique-footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .unique-footer-logo-social {
+        align-items: center;
+    }
+
+    .unique-social-icons {
+        justify-content: center;
+    }
+
+    .unique-footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .unique-column {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .unique-logo img {
+        width: 40px;
+    }
+
+    .unique-social-icons a img {
+        width: 20px;
+    }
+
+    .unique-column h3 {
+        font-size: 16px;
+    }
+
+    .unique-column ul li a {
+        font-size: 14px;
+    }
+}
