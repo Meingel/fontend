@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Mejorado</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Icono para el menú hamburguesa -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <nav class="menu">
-            <div class="logo">
-                <img src="image/icono.png" class="Icono" width="30" height="30">
-            </div>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html" class="login-btn">Login</a></li>
-                <li><a href="registro.html" class="registro-btn">Registro</a></li>
-            </ul>
-        </nav>
+      <nav class="menu">
+        <div class="logo">
+          <img src="image/icono.png" class="Icono" width="30" height="30" />
+        </div>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon"
+          ><i class="fas fa-bars"></i
+        ></label>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="login.html" class="login-btn">Login</a></li>
+          <li><a href="registro.html" class="registro-btn">Registro</a></li>
+        </ul>
+      </nav>
     </header>
-</body>
+    <div class="contact backdrop">
+      <div class="form-container">
+        <h1 class="title">Contactanos</h1>
+        <form class="form card">
+          <div class="control">
+            <label for="username">Nombre</label>
+            <input type="text" id="username" placeholder="Ingresa tu nombre" />
+          </div>
+          <div class="control">
+            <label for="email">Corrreo</label>
+            <input type="text" id="email" placeholder="Ingresa tu correo" />
+          </div>
+          <div class="control">
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message" placeholder="Escribe un mensaje" ></textarea>
+          </div>
+          <button>Enviar</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

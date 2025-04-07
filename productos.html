@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Mejorado</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Icono para el menú hamburguesa -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productos</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-    <header>
-        <nav class="menu">
-            <div class="logo">
-                <img src="image/icono.png" class="Icono" width="30" height="30">
-            </div>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html" class="login-btn">Login</a></li>
-                <li><a href="registro.html" class="registro-btn">Registro</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav class="menu">
+      <div class="logo">
+        <img src="image/icono.png" class="Icono" width="30" height="30">
+      </div>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
+        <li><a href="registro.html" class="registro-btn">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="productos-container">
+    <h1 class="titulo-galeria">Nuestros Productos</h1>
+    <section class="galeria-productos">
+      <!-- Producto 1 -->
+      <div class="producto-card">
+        <img src="https://via.placeholder.com/250x250?text=Producto+1" alt="Producto 1" />
+        <h2>Producto 1</h2>
+        <p>$25.000</p>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="producto-card">
+        <img src="https://via.placeholder.com/250x250?text=Producto+2" alt="Producto 2" />
+        <h2>Producto 2</h2>
+        <p>$30.000</p>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="producto-card">
+        <img src="https://via.placeholder.com/250x250?text=Producto+3" alt="Producto 3" />
+        <h2>Producto 3</h2>
+        <p>$40.000</p>
+      </div>
+
+    </section>
+  </main>
 </body>
 </html>
+
