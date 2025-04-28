@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -40,7 +41,7 @@
       <div class="form-container">
         <h1 class="title">Inicio de sesion</h1>
         <small class="subtitle">Bienvenido por favor ingresa tus datos</small>
-        <form class="form">
+        <form class="form" id="loginForm">
           <div class="control">
             <label for="email">Corrreo</label>
             <input type="text" id="email" placeholder="Ingresa tu correo" />
@@ -57,9 +58,9 @@
               <input type="checkbox" id="remember-me" />
               <label for="remember-me">Recuerdame</label>
             </div>
-            <a href="">Olvidaste la contrasena?</a>
+            <a href="/forgot-password.html" >Olvidaste la contrasena?</a>
           </div>
-          <button>Ingresar</button>
+          <button type="submit">Ingresar</button>
         </form>
         <small
           >Aun no tienes una cuenta?
