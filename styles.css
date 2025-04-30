@@ -23,6 +23,8 @@ header {
   justify-content: space-between;
   padding: 15px 30px;
   position: relative;
+  height: 80px;
+  box-sizing: border-box;
 }
 
 /* Logo en el menú */
@@ -149,6 +151,7 @@ header {
   .menu {
       flex-wrap: wrap;
       padding: 15px;
+      height: 70px;
   }
   
   .menu-icon {
@@ -168,11 +171,12 @@ header {
       text-align: center;
       background-color: #343A40;
       position: absolute;
-      top: 100%;
+      top: 70px;
       left: 0;
       z-index: 1000;
       padding: 20px 0;
       box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255,255,255,0.1);
   }
   
   .nav-links li {

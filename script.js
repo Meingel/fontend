@@ -77,7 +77,7 @@ function login(event) {
   );
 
   if (!validUser) {
-    alert("Usuario incorrecto");
+    showNotification('Usuario o contraseña incorrectos', 'error');
     return;
   }
 
