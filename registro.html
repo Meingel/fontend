@@ -92,6 +92,7 @@
         >
       </div>
     </div>
+    <script src="script.js"></script>
     <script>
       function showNotification(message, isSuccess) {
         const notification = document.getElementById("notification");
@@ -132,7 +133,7 @@
           );
           return;
         }
-        users = JSON.parse(localStorage.getItem("users"));
+        users = JSON.parse(localStorage.getItem("users") || []);
 
         const userObj = {
           id: Math.random(),

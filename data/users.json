@@ -3,13 +3,13 @@
       "id": 1,
       "userName": "Jhon Doe",
       "email": "jhon.doe@gmail.com",
-      "password": "12345"
+      "password": "123456"
     },
     {
       "id": 2,
       "userName": "Jane Smith",
       "email": "jane.smith@gmail.com",
-      "password": "67890"
+      "password": "678901"
     },
     {
       "id": 3,
