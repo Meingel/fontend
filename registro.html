@@ -14,7 +14,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -39,23 +42,47 @@
     </header>
     <div class="backdrop">
       <div class="form-container">
-        <div id="notification" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; text-align: center;"></div>
+        <div
+          id="notification"
+          style="
+            display: none;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            text-align: center;
+          "
+        ></div>
         <h1 class="title">Crea una cuenta</h1>
         <small class="subtitle">Empieza tu viaje</small>
         <form class="form" id="registerForm">
           <div class="control">
             <label for="username">Nombre</label>
-            <input type="text" id="username" placeholder="Ingresa tu nombre"  required/>
+            <input
+              type="text"
+              id="username"
+              placeholder="Ingresa tu nombre"
+              required
+            />
           </div>
           <div class="control">
             <label for="email">Corrreo</label>
-            <input type="email" id="email" placeholder="Ingresa tu correo"  required/>
+            <input
+              type="email"
+              id="email"
+              placeholder="Ingresa tu correo"
+              required
+            />
           </div>
           <div class="control">
             <label for="password">Contrasena</label>
             <div class="password">
               <i class="bi bi-eye-slash" onclick="togglePassword(this)"></i>
-              <input type="password" id="password" placeholder="Contrasena"  required/>
+              <input
+                type="password"
+                id="password"
+                placeholder="Contrasena"
+                required
+              />
             </div>
           </div>
           <button type="submit">Empezar</button>
@@ -67,54 +94,76 @@
     </div>
     <script>
       function showNotification(message, isSuccess) {
-        const notification = document.getElementById('notification');
-        notification.style.display = 'block';
-        notification.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
-        notification.style.color = 'white';
+        const notification = document.getElementById("notification");
+        notification.style.display = "block";
+        notification.style.backgroundColor = isSuccess ? "#4CAF50" : "#f44336";
+        notification.style.color = "white";
         notification.textContent = message;
-        
+
         // Si es un mensaje de éxito, ocultarlo después de 3 segundos
         if (isSuccess) {
           setTimeout(() => {
-            notification.style.display = 'none';
+            notification.style.display = "none";
           }, 3000);
         }
       }
 
-      document.getElementById('registerForm').addEventListener('submit', async function(event) {
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", register);
+
+      function register(event) {
         event.preventDefault();
-        
-        const username = document.getElementById('username').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value;
-        
+
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
         // Validaciones básicas
         if (!username || !email || !password) {
-          showNotification('Por favor, complete todos los campos', false);
+          showNotification("Por favor, complete todos los campos", false);
           return;
         }
-        
+
         if (password.length < 6) {
-          showNotification('La contraseña debe tener al menos 6 caracteres', false);
+          showNotification(
+            "La contraseña debe tener al menos 6 caracteres",
+            false
+          );
           return;
         }
-        
+        users = JSON.parse(localStorage.getItem("users"));
+
+        const userObj = {
+          id: Math.random(),
+          name,
+          email,
+          password,
+        };
+
+        users.push(userObj);
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        window.location.href = "/login.html";
+
         // Simular registro exitoso
-        showNotification('¡Registro exitoso!', true);
+        showNotification("¡Registro exitoso!", true);
         // Limpiar el formulario
-        document.getElementById('registerForm').reset();
-      });
-      
+
+        this.reset();
+      }
+
       function togglePassword(icon) {
-        const passwordInput = document.getElementById('password');
-        if (passwordInput.type === 'password') {
-          passwordInput.type = 'text';
-          icon.classList.remove('bi-eye-slash');
-          icon.classList.add('bi-eye');
+        const passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
         } else {
-          passwordInput.type = 'password';
-          icon.classList.remove('bi-eye');
-          icon.classList.add('bi-eye-slash');
+          passwordInput.type = "password";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
         }
       }
     </script>
