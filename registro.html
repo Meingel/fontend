@@ -38,6 +38,7 @@
     </header>
     <div class="backdrop">
       <div class="form-container">
+        <div id="notification" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; text-align: center;"></div>
         <h1 class="title">Crea una cuenta</h1>
         <small class="subtitle">Empieza tu viaje</small>
         <form class="form" id="registerForm">
@@ -63,6 +64,58 @@
         >
       </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+      function showNotification(message, isSuccess) {
+        const notification = document.getElementById('notification');
+        notification.style.display = 'block';
+        notification.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
+        notification.style.color = 'white';
+        notification.textContent = message;
+        
+        // Si es un mensaje de éxito, ocultarlo después de 3 segundos
+        if (isSuccess) {
+          setTimeout(() => {
+            notification.style.display = 'none';
+          }, 3000);
+        }
+      }
+
+      document.getElementById('registerForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        
+        // Validaciones básicas
+        if (!username || !email || !password) {
+          showNotification('Por favor, complete todos los campos', false);
+          return;
+        }
+        
+        if (password.length < 6) {
+          showNotification('La contraseña debe tener al menos 6 caracteres', false);
+          return;
+        }
+        
+        // Simular registro exitoso
+        showNotification('¡Registro exitoso!', true);
+        // Limpiar el formulario
+        document.getElementById('registerForm').reset();
+      });
+      
+      function togglePassword(icon) {
+        const passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icon.classList.remove('bi-eye-slash');
+          icon.classList.add('bi-eye');
+        } else {
+          passwordInput.type = 'password';
+          icon.classList.remove('bi-eye');
+          icon.classList.add('bi-eye-slash');
+        }
+      }
+    </script>
   </body>
 </html>

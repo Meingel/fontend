@@ -50,7 +50,29 @@
           </div>
           <button>Enviar</button>
         </form>
+        <div id="successMessage" style="display: none; color: green; margin-top: 20px; text-align: center;">¡Mensaje enviado con éxito! Pronto nos contactaremos contigo.</div>
       </div>
     </div>
+    <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Simulación de envío exitoso
+        const successMessage = document.getElementById('successMessage');
+        successMessage.style.display = 'block';
+        
+        // Limpiar el formulario
+        this.reset();
+        
+        // Ocultar el mensaje después de 5 segundos
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      });
+    </script>
   </body>
 </html>

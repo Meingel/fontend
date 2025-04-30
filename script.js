@@ -99,6 +99,11 @@ function sendRecoveryEmail(event) {
   users = JSON.parse(localStorage.getItem("users"));
 
   const user = users.find((x) => x.email === email);
+  
+  if (!user) {
+    showNotification('No se encontró ninguna cuenta con este correo electrónico', 'error');
+    return;
+  }
 
   emailjs
     .send("service_3b3ea8j", "template_6r646vw", {
@@ -108,13 +113,29 @@ function sendRecoveryEmail(event) {
     .then(
       function (response) {
         console.log("Correo enviado!", response.status, response.text);
-        alert("Correo enviado! a " + email)
+        showNotification(`Se ha enviado un correo de recuperación a ${email}`);
+        document.getElementById("forgotPassword").reset();
       },
       function (error) {
         console.log("Fallo al enviar el correo...", error);
+        showNotification('Error al enviar el correo de recuperación', 'error');
       }
     );
 }
+
+function showNotification(message, type = 'success') {
+  const notification = document.getElementById('notification');
+  const notificationMessage = document.getElementById('notification-message');
+  
+  notification.style.backgroundColor = type === 'success' ? '#4CAF50' : '#f44336';
+  notificationMessage.textContent = message;
+  notification.style.display = 'block';
+  
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 3000);
+}
+
 
 function recoverPassword(event) {
   event.preventDefault();

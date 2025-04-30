@@ -6,6 +6,18 @@
   <title>Dashboard Admin</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+    .dashboard-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .stat-card { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .users-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .users-table th, .users-table td { padding: 0.75rem; border-bottom: 1px solid #ddd; text-align: left; }
+    .config-form { background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem; }
+    .config-form div { margin-bottom: 1rem; }
+    .config-form label { display: block; margin-bottom: 0.5rem; }
+    .config-form input, .config-form select { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
+  </style>
 </head>
 <body>
   <div class="dashboard-layout">
@@ -15,9 +27,9 @@
         <h2>Admin</h2>
       </div>
       <ul class="sidebar-menu">
-        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Panel</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
-        <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li>
+        <li><a href="#" data-section="panel" class="menu-link active"><i class="fas fa-tachometer-alt"></i> Panel</a></li>
+        <li><a href="#" data-section="usuarios" class="menu-link"><i class="fas fa-users"></i> Usuarios</a></li>
+        <li><a href="#" data-section="configuracion" class="menu-link"><i class="fas fa-cogs"></i> Configuración</a></li>
         <li><a href="/login.html"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
       </ul>
     </aside>
@@ -27,25 +39,108 @@
         <h1>Panel de Administración</h1>
       </header>
 
-      <section class="cards-container">
-        <div class="card">
-          <i class="fas fa-users card-icon"></i>
-          <h2>Gestionar Usuarios</h2>
-          <p>Ver, editar y eliminar usuarios registrados.</p>
+      <!-- Panel Principal -->
+      <section id="panel" class="content-section active">
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <h3>Usuarios Activos</h3>
+            <p class="stat-number">1,234</p>
+          </div>
+          <div class="stat-card">
+            <h3>Ventas del Mes</h3>
+            <p class="stat-number">$45,678</p>
+          </div>
+          <div class="stat-card">
+            <h3>Productos Activos</h3>
+            <p class="stat-number">567</p>
+          </div>
         </div>
-        <div class="card">
-          <i class="fas fa-chart-line card-icon"></i>
-          <h2>Estadísticas</h2>
-          <p>Visualiza la actividad y métricas generales.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-cogs card-icon"></i>
-          <h2>Configuración</h2>
-          <p>Modifica ajustes del sistema y permisos.</p>
-        </div>
+      </section>
+
+      <!-- Sección de Usuarios -->
+      <section id="usuarios" class="content-section">
+        <h2>Gestión de Usuarios</h2>
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Juan Pérez</td>
+              <td>juan@ejemplo.com</td>
+              <td>Usuario</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>María García</td>
+              <td>maria@ejemplo.com</td>
+              <td>Admin</td>
+              <td>Activo</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Sección de Configuración -->
+      <section id="configuracion" class="content-section">
+        <h2>Configuración del Sistema</h2>
+        <form class="config-form">
+          <div>
+            <label for="siteName">Nombre del Sitio</label>
+            <input type="text" id="siteName" value="Mi Tienda" />
+          </div>
+          <div>
+            <label for="theme">Tema</label>
+            <select id="theme">
+              <option value="light">Claro</option>
+              <option value="dark">Oscuro</option>
+            </select>
+          </div>
+          <div>
+            <label for="emailNotifications">Notificaciones por Email</label>
+            <select id="emailNotifications">
+              <option value="enabled">Activadas</option>
+              <option value="disabled">Desactivadas</option>
+            </select>
+          </div>
+        </form>
       </section>
     </main>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuLinks = document.querySelectorAll('.menu-link');
+      const sections = document.querySelectorAll('.content-section');
+
+      menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sectionId = link.getAttribute('data-section');
+
+          // Actualizar enlaces activos
+          menuLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+
+          // Mostrar sección correspondiente
+          sections.forEach(section => {
+            section.classList.remove('active');
+            if (section.id === sectionId) {
+              section.classList.add('active');
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
