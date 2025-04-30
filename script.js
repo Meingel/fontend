@@ -60,7 +60,7 @@ function register(event) {
 
   localStorage.setItem("users", JSON.stringify(users));
 
-  window.location.href = "/dashboard.html";
+  window.location.href = "./dashboard.html";
 
   this.reset();
 }
@@ -90,7 +90,7 @@ function login(event) {
   localStorage.setItem("user", JSON.stringify(userObj));
   this.reset();
 
-  window.location.href = "/dashboard.html";
+  window.location.href = "./dashboard.html";
 }
 
 function sendRecoveryEmail(event) {
@@ -154,7 +154,7 @@ function recoverPassword(event) {
   localStorage.setItem("users", JSON.stringify(users));
 
   this.reset()
-  window.location.href = "/login.html";
+  window.location.href = "./login.html";
 }
 
 function getUrlParam(param) {
